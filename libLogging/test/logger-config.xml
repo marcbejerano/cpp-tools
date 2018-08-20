@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<logfactory>
+    <rootLogger threshold="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </rootLogger>
+
+    <loggers>
+        <logger threshold="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="LOGFILE"/>
+        </logger>
+    </loggers>
+
+    <appenders>
+        <appender name="CONSOLE" type="ConsoleAppender">
+            <layout>
+                <patternlayout pattern="%d{ABSOLUTE} [%5p] %m%n"/>
+            </layout>
+        </appender>
+
+        <appender name="LOGFILE" type="FileAppender">
+            <file>LogFactoryTest.log</file>
+            <append>true</append>
+            <layout>
+                <patternlayout pattern="%d{ISO8601} [%5p] %F(%L) - %m%n"/>
+            </layout>
+        </appender>
+    </appenders>
+</logfactory>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT logfactory (rootLogger?,loggers?,appenders?)>
+<!ELEMENT rootLogger (appender-ref+)>
+    <!ATTLIST rootLogger threshold (ALL|TRACE|DEBUG|INFO|WARN|ERROR|FATAL|OFF) "INFO" >
+<!ELEMENT loggers (logger+)>
+<!ELEMENT logger (appender-ref+)>
+    <!ATTLIST logger threshold (ALL|TRACE|DEBUG|INFO|WARN|ERROR|FATAL|OFF) "INFO" >
+<!ELEMENT appenders (appender+)>
+<!ELEMENT appender (file?,append?,layout?)>
+    <!ATTLIST appender
+        name CDATA #REQUIRED
+        type CDATA #REQUIRED>
+<!ELEMENT layout (patternlayout)>
+<!ELEMENT patternlayout EMPTY>
+    <!ATTLIST patternlayout pattern CDATA "%m%n">
+<!-- FileAppender -->
+<!ELEMENT file (#PCDATA)>
+<!ELEMENT append (#PCDATA)>
+<!ELEMENT appender-ref EMPTY>
+<!ATTLIST appender-ref ref CDATA #REQUIRED>
+
